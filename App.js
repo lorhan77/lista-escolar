@@ -23,10 +23,22 @@ export default function App() {
         definirValorMateriais(valorMateriais.concat(nativeEvent.text))
         }
       />
-     <FlatList
-       data = {[listaMateriais,valorMateriais] }
-       renderItem = {({item, index}) => <Text style={styles.nome}> {item} {index}</Text>} 
-       />
+      
+      <View  style={styles.item}>
+     <FlatList 
+       data = {listaMateriais }
+       renderItem = {({item}) => 
+       <Text> {item} </Text>
+        } 
+        /> 
+
+    <FlatList 
+       data = {valorMateriais }
+       renderItem = {({item}) => 
+       <Text> {item} </Text>
+        } 
+        /> 
+       </View>
     
     </View>
   );
@@ -35,26 +47,24 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9c2ff',
+    backgroundColor: 'brown',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  nome: {
-    fontSize: 18
-  },
-  preco: {
-    color: 'gray',
-    fontSize: 16,
-    marginLeft: 10
-  },
-
+  
   input: {
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: 'white',
     padding: 10,
     borderRadius: 5,
     marginBottom: 10,
     alignSelf: 'stretch'
-  }
+  },
+
+  item: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 5
+  },
  
 });
